@@ -23,9 +23,24 @@
         //Drugi nacin je---> if ($SERVER[REQUEST_METHOD"] == "POST")
 			if(isset($_POST['submit']))
 			{ 	$unos =$_POST['ulaz'];
-				$broj_rijeci = str_word_count($unos);
+				/* $broj_rijeci = str_word_count($unos);
 				echo "Ulazni niz: ". $unos . ". sadrži ". $broj_rijeci ." riječi.";
-			    return 0;
+			    return 0; */
+			 
+			 if(empty($unos)) { $broj_rijeci = 0; } else { $broj_rijeci = trim(substr_count($unos, ' ') + 1); }
+		
+				switch($broj_rijeci) {
+					case 0 :
+					echo 'Nema upisa!';
+					break;
+					case 1 :
+					echo "Ulazni niz: ". $unos . ". sadrži ". $broj_rijeci ." riječ.";
+					break;
+					case $broj_rijeci > 1 :
+					echo "Ulazni niz: ". $unos . ". sadrži ". $broj_rijeci ." riječi.";
+					break;
+				}
+			 
 			}
 		?>
 	</body>
