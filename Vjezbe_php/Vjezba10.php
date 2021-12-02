@@ -27,7 +27,9 @@
 				echo "Ulazni niz: ". $unos . ". sadrži ". $broj_rijeci ." riječi.";
 			    return 0; */
 			 
-			 if(empty($unos)) { $broj_rijeci = 0; } else { $broj_rijeci = trim(substr_count($unos, ' ') + 1); }
+			 $unos = trim($unos);
+			 
+			 if(empty($unos)) { $broj_rijeci = 0; } else { $broj_rijeci = substr_count($unos, ' ') + 1; }
 		
 				switch($broj_rijeci) {
 					case 0 :
